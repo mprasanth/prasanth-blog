@@ -1,0 +1,25 @@
+extends ./layout.jade
+
+block content
+  // Header background image
+  header.intro-header(style="background-image: url('http://ironsummitmedia.github.io/startbootstrap-clean-blog/img/home-bg.jpg')")
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .site-heading
+            h1 Clean Blog
+            hr.small
+            span.subheading A Clean Blog Theme by Start Bootstrap
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        - posts = {}
+        - posts['some-post'] = { title: 'Some pretty title', subtitle: 'Hello this is a nice post', date: 'March 15, 2015' }
+        - posts['another'] = { title: 'Another post', subtitle: 'Hey hello we rule the world babe', date: 'February 22, 2015' }
+        each post, slug in posts
+          .post-preview
+            a(href="/posts/#{slug}.html")
+              h2.post-title #{post.title}
+              h3.post-subtitle #{post.subtitle}
+            p.post-meta
+              | Posted by John Doe on #{post.date}
